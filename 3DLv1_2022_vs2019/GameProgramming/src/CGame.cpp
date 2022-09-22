@@ -7,6 +7,8 @@
 #include "CCamera.h"
 #include "main.h"
 
+#define BLOCK 1 //ブロック
+
 void CGame::Start()
 {
 //	CameraSet();
@@ -110,7 +112,7 @@ CGame::CGame()
 		for (int col = 0; col < COLS; col++)
 		{
 			//1の時、ブロック生成
-			if (map[row][col] == 1)
+			if (map[row][col] == BLOCK)
 			{
 				//ブロックを生成して、キャラクタマネージャに追加
 				CApplication::CharacterManager()->Add(
