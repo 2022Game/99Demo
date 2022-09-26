@@ -1,5 +1,6 @@
 #include "CApplication.h"
 #include "CRectangle.h"
+#include "glut.h"
 
 //ÉNÉâÉXÇÃstaticïœêî
 CTexture CApplication::mTexture;
@@ -25,5 +26,22 @@ void CApplication::Start()
 
 void CApplication::Update()
 {
+	gluLookAt(1.0f, 2.0f, 3.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
+	glBegin(GL_TRIANGLES);
+
+	glNormal3f(0.0f, 1.0f, 0.0f);
+
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(1.0f, 0.0f, 0.0f);
+	glVertex3f(0.0f, 0.0f, -0.5f);
+
+
+	glNormal3f(0.0f, 0.0f, 1.0f);
+
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.0f, 1.0f, 0.0f);
+	glVertex3f(-0.5f, 0.0f, 0.0f);
+
+	glEnd();
 }
