@@ -23,7 +23,7 @@ CTexture* CApplication::Texture()
 
 void CApplication::Start()
 {
-
+	mEye = CVector(1.0f, 2.0f, 3.0f);
 }
 
 void CApplication::Update()
@@ -39,7 +39,32 @@ void CApplication::Update()
 	//í∏ì_3ÇÃç¿ïWÇê›íËÇ∑ÇÈ
 	v2.Set(0.0f, 0.0f, -0.5f);
 
-	gluLookAt(1.0f, 2.0f, 3.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
+	if (mInput.Key('J'))
+	{
+		mEye = mEye - CVector(0.1f, 0.0f, 0.0f);
+	}
+	if (mInput.Key('L'))
+	{
+		mEye = mEye + CVector(0.1f, 0.0f, 0.0f);
+	}
+	if (mInput.Key('I'))
+	{
+		mEye = mEye - CVector(0.0f, 0.0f, 0.1f);
+	}
+	if (mInput.Key('K'))
+	{
+		mEye = mEye + CVector(0.0f, 0.0f, 0.1f);
+	}
+	if (mInput.Key('M'))
+	{
+		mEye = mEye - CVector(0.0f, 0.1f, 0.0f);
+	}
+	if (mInput.Key('O'))
+	{
+		mEye = mEye + CVector(0.0f, 0.1f, 0.0f);
+	}
+
+	gluLookAt(mEye.X(), mEye.Y(), mEye.Z(), 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
 	glBegin(GL_TRIANGLES);
 

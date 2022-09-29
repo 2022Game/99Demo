@@ -1,5 +1,15 @@
 #include "CVector.h"
 
+CVector CVector::operator-(const CVector& v) const
+{
+	return CVector(mX - v.mX, mY - v.mY, mZ - v.mZ);
+}
+
+CVector CVector::operator+(const CVector& v) const
+{
+	return CVector(mX + v.mX, mY + v.mY, mZ + v.mZ);
+}
+
 CVector::CVector()
 	: mX(0.0f), mY(0.0f), mZ(0.0f)
 {
