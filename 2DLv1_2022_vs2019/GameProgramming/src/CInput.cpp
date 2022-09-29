@@ -8,7 +8,7 @@ void CInput::Window(GLFWwindow* pwindow)
 	spWindow = pwindow;
 }
 
-void CInput::GetMousePos(float* px, float* py)
+void CInput::GetMousePosWin(float* px, float* py)
 {
 	double xpos, ypos;
 	glfwGetCursorPos(spWindow, &xpos, &ypos);
