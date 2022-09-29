@@ -1,5 +1,7 @@
 #include "CPlayer2.h"
 #include "CApplication.h"
+// Use WINDOW_WIDTH
+#include "main.h"
 
 #define TEXCOORD 168, 188, 158, 128	//テクスチャマッピング
 #define TEXCRY 196, 216, 158, 128	//テクスチャマッピング
@@ -111,7 +113,8 @@ void CPlayer2::Update()
 	}
 	if (mState != EState::EJUMP)
 	{
-		if (mInput.Key('J'))
+		// CLICK TO JUMP
+		if (mInput.Key('J') || mInput.Key(VK_LBUTTON))
 		{
 			//ジャンプ音
 			mSoundJump.Play(0.1f);
@@ -119,13 +122,16 @@ void CPlayer2::Update()
 			mState = EState::EJUMP;
 		}
 	}
-	if (mInput.Key('A'))
+	//マウスカーソル座標取得
+	float mouseX, mouseY;
+	mInput.GetMousePos(&mouseX, &mouseY);
+	if (mInput.Key('A') || mouseX < WINDOW_WIDTH * 0.4f)
 	{
 		mVx = -VELOCITY;
 		//		float x = X() - 4.0f;
 		X(X() + mVx);
 	}
-	if (mInput.Key('D'))
+	if (mInput.Key('D') || WINDOW_WIDTH * 0.5f < mouseX)
 	{
 		mVx = VELOCITY;
 		//		float x = X() - 4.0f;

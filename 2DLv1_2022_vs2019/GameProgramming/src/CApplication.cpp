@@ -36,7 +36,8 @@ void CApplication::Update()
 	case EState::ESTART:	//状態がスタート
 		mpGame->Start();	//スタート画面表示
 		//Enterキーが押されたら
-		if (mInput.Key(VK_RETURN))
+		if (mInput.Key(VK_RETURN)
+			|| mInput.Key(VK_LBUTTON))
 		{	//状態をプレイ中にする
 			mState = EState::EPLAY;
 			//BGMリピート再生
