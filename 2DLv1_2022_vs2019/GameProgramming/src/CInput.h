@@ -6,7 +6,7 @@ class CInput
 {
 public:
 	static void Window(GLFWwindow* pwindow);
-	void GetMousePos(float* px, float* py);
+	void GetMousePosWin(float* px, float* py);
 
 	CInput();
 	//bool Key(•¶Žš)

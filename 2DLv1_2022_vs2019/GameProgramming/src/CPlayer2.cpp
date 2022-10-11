@@ -124,7 +124,7 @@ void CPlayer2::Update()
 	}
 	//マウスカーソル座標取得
 	float mouseX, mouseY;
-	mInput.GetMousePos(&mouseX, &mouseY);
+	mInput.GetMousePosWin(&mouseX, &mouseY);
 	//マウスカーソルが画面４０％より左なら左移動
 	if (mInput.Key('A'))// || mouseX < WINDOW_WIDTH * 0.4f)
 	{
