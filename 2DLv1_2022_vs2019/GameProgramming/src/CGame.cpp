@@ -122,8 +122,8 @@ CGame::CGame()
 			if (map[row][col] == 2)
 			{
 				//カメラ用差分
-				mCdx = WINDOW_WIDTH / 2 - (TIPSIZE + TIPSIZE * 2 * col);
-				mCdy = WINDOW_HEIGHT / 2 - (TIPSIZE + TIPSIZE * 2 * row);
+				mCdx = WINDOW_WIDTH / 4 - (TIPSIZE + TIPSIZE * 2 * col);
+				mCdy = WINDOW_HEIGHT / 4 - (TIPSIZE + TIPSIZE * 2 * row);
 				//プレイヤーを生成して、キャラクタマネージャに追加
 				CApplication::CharacterManager()->Add(
 					mpPlayer = new CPlayer2(TIPSIZE + TIPSIZE * 2 * col,
