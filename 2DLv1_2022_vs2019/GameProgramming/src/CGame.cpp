@@ -137,7 +137,7 @@ CGame::CGame()
 				CApplication::CharacterManager()->Add(
 					new CEnemy2(TIPSIZE + TIPSIZE * 2 * col,
 						TIPSIZE + TIPSIZE * 2 * row,
-						TIPSIZE, TIPSIZE, CApplication::Texture()));
+						TIPSIZE, TIPSIZE, CApplication::Texture2()));
 			}
 			//4の時、折り返しポイント作成
 			if (map[row][col] == 4)

@@ -1,12 +1,18 @@
 #include "CEnemy2.h"
 #include "CApplication.h"
 
-#define TEXCOORD 168, 188, 190, 160	//テクスチャマッピング
-#define TEXCRY 196, 216, 190, 160	//テクスチャマッピング
+//#define TEXCOORD 168, 188, 190, 160	//テクスチャマッピング
+//#define TEXCRY 196, 216, 190, 160	//テクスチャマッピング
 
-#define TEXCOORD2 136,156,190,160	//右向き2
-#define TEXLEFT1 188,168,190,160	//左向き1
-#define TEXLEFT2 156,136,190,160	//左向き2
+//#define TEXCOORD2 136,156,190,160	//右向き2
+//#define TEXLEFT1 188,168,190,160	//左向き1
+//#define TEXLEFT2 156,136,190,160	//左向き2
+
+#define TEXCOORD 1720, 1872, 190, 344	//テクスチャマッピング
+#define TEXCRY 1720, 1872, 190, 344	//テクスチャマッピング
+#define TEXCOORD2 1720, 1872, 190, 344	//右向き2
+#define TEXLEFT1 1720, 1872, 190, 344	//左向き1
+#define TEXLEFT2 1720, 1872, 190, 344	//左向き2
 
 int CEnemy2::sNum = 0;
 

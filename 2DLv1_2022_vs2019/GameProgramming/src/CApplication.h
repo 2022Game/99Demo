@@ -32,6 +32,7 @@ private:
 //	CCharacter mRectangle;
 	CPlayer* mpPlayer;
 	static CTexture mTexture;
+	static CTexture mTexture2;
 	CEnemy* mpEnemy;
 //	CBullet* mpBullet;
 	CInput mInput;
@@ -42,6 +43,7 @@ private:
 public:
 	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
+	static CTexture* Texture2();
 	//最初に一度だけ実行するプログラム
 	void Start();
 	//繰り返し実行するプログラム
