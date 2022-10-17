@@ -1,6 +1,8 @@
 #include "CEnemy2.h"
 #include "CApplication.h"
 
+#include "CPlayer2.h"
+
 //#define TEXCOORD 168, 188, 190, 160	//テクスチャマッピング
 //#define TEXCRY 196, 216, 190, 160	//テクスチャマッピング
 
@@ -87,6 +89,16 @@ void CEnemy2::Update()
 		Texture(Texture(), TEXCRY);
 		break;
 	case EState::EMOVE:
+		if (X() < CPlayer2::Instance()->X())
+		{
+			if(mVx < 0)
+				mVx = -mVx;
+		}
+		else
+		{
+			if (mVx > 0)
+				mVx = -mVx;
+		}
 		//X軸速度分、X座標を更新する
 		X(X() + mVx);
 		const int PITCH = 32;//画像を切り替える間隔
