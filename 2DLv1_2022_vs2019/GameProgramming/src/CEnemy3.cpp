@@ -82,16 +82,6 @@ void CEnemy3::Update()
 		Texture(Texture(), TEXCRY);
 		break;
 	case EState::EMOVE:
-		if (X() < CPlayer3::Instance()->X())
-		{
-			if (mVx < 0)
-				mVx = -mVx;
-		}
-		else
-		{
-			if (mVx > 0)
-				mVx = -mVx;
-		}
 		//X軸速度分、X座標を更新する
 		X(X() + mVx);
 		const int PITCH = 32;//画像を切り替える間隔

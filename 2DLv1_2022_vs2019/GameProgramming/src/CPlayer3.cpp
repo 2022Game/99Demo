@@ -10,8 +10,7 @@ CPlayer3* CPlayer3::Instance()
 	return spInstance;
 }
 
-
-#define TEXCOORD 115, 125, 70, 62	//テクスチャマッピング
+#define TEXCOORD 115, 126, 70, 62	//テクスチャマッピング
 //#define TEXCOORD 168, 188, 158, 128	//テクスチャマッピング
 #define TEXCRY 196, 216, 158, 128	//テクスチャマッピング
 //#define GRAVITY (TIPSIZE / 20.0f)	//重力加速度
