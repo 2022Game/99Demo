@@ -18,17 +18,25 @@ CTexture* CApplication::Texture()
 	return &mTexture;
 }
 
+//テクスチャファイル名
+#define TEXTURE2 "22302021.png"
 CTexture CApplication::mTexture2;
-
 CTexture* CApplication::Texture2()
 {
 	return &mTexture2;
 }
+
 //テクスチャファイル名
-#define TEXTURE2 "22302021.png"
+#define TEXTURE3 "117159.png"
+CTexture CApplication::mTexture3;
+CTexture* CApplication::Texture3()
+{
+	return &mTexture3;
+}
 
 void CApplication::Start()
 {
+	mTexture3.Load(TEXTURE3);
 	mTexture2.Load(TEXTURE2);
 	//Sound
 	mSoundBgm.Load(SOUND_BGM);
@@ -36,7 +44,7 @@ void CApplication::Start()
 
 	mFont.Load("FontWhite.png", 1, 64);
 	mState = EState::ESTART;
-	mpGame = new CGame();
+	mpGame = new CGame2();
 }
 
 void CApplication::Update()
@@ -79,7 +87,7 @@ void CApplication::Update()
 		{	//ゲームのインスタンス削除
 			delete mpGame;
 			//ゲームのインスタンス生成
-			mpGame = new CGame();
+			mpGame = new CGame2();
 			//状態をスタートにする
 			mState = EState::ESTART;
 		}
@@ -90,7 +98,7 @@ void CApplication::Update()
 		if (mInput.Key(VK_RETURN))
 		{
 			delete mpGame;
-			mpGame = new CGame();
+			mpGame = new CGame2();
 			mState = EState::ESTART;
 		}
 		break;
