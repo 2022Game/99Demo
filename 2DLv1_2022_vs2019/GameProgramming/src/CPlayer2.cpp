@@ -3,6 +3,13 @@
 // Use WINDOW_WIDTH
 #include "main.h"
 
+CPlayer2* CPlayer2::spInstance = nullptr;
+
+CPlayer2* CPlayer2::Instance()
+{
+	return spInstance;
+}
+
 #define TEXCOORD 168, 188, 158, 128	//テクスチャマッピング
 #define TEXCRY 196, 216, 158, 128	//テクスチャマッピング
 #define GRAVITY (TIPSIZE / 20.0f)	//重力加速度
@@ -102,6 +109,8 @@ CPlayer2::CPlayer2(float x, float y, float w, float h, CTexture* pt)
 	sHp = HP;
 	//ジャンプ音ロード
 	mSoundJump.Load(SE_JUMP);
+
+	spInstance = this;
 }
 
 void CPlayer2::Update()

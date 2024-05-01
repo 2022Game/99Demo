@@ -13,13 +13,14 @@
 
 #include "CGame.h"
 #include "CSound.h"
+#include "CGame2.h"
 
 class CApplication
 {
 private:
 	CSound mSoundBgm;	//BGM
 	CSound mSoundOver;	//ゲームオーバー
-	CGame* mpGame;
+	CGame2* mpGame;
 	static CCharacterManager mCharacterManager;
 	enum class EState
 	{
@@ -32,6 +33,8 @@ private:
 //	CCharacter mRectangle;
 	CPlayer* mpPlayer;
 	static CTexture mTexture;
+	static CTexture mTexture2;
+	static CTexture mTexture3;
 	CEnemy* mpEnemy;
 //	CBullet* mpBullet;
 	CInput mInput;
@@ -42,6 +45,8 @@ private:
 public:
 	static CCharacterManager* CharacterManager();
 	static CTexture* Texture();
+	static CTexture* Texture2();
+	static CTexture* Texture3();
 	//最初に一度だけ実行するプログラム
 	void Start();
 	//繰り返し実行するプログラム
