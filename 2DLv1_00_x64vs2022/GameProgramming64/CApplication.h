@@ -2,6 +2,8 @@
 #include "CRectangle.h"
 #include "CTexture.h"
 #include "CCharacter.h"
+#include "CBullet.h"
+#include "CEnemy.h"
 
 class CApplication
 {
@@ -11,7 +13,9 @@ public:
 	//ŒJ‚è•Ô‚µÀs‚·‚éƒvƒƒOƒ‰ƒ€
 	void Update();
 private:
+	CBullet mBullet;
+//	CRectangle mRectangle;
 	CCharacter mRectangle;
 	CTexture mTexture;
-	CCharacter mCharacter;
+	CEnemy mEnemy;
 };

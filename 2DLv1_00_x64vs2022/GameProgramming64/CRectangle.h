@@ -11,6 +11,8 @@ public:
 	float Y();
 	float W();
 	float H();
+	void X(float x);
+	void Y(float y);
 private:
 	float mX; //XÀ•W
 	float mY; //YÀ•W

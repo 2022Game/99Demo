@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CApplication.cpp" />
+    <ClCompile Include="CBullet.cpp" />
     <ClCompile Include="CCharacter.cpp" />
+    <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="CInput.cpp" />
     <ClCompile Include="CRectagle.cpp" />
     <ClCompile Include="CSound.cpp" />
@@ -29,7 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CApplication.h" />
+    <ClInclude Include="CBullet.h" />
     <ClInclude Include="CCharacter.h" />
+    <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CInput.h" />
     <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CSound.h" />
