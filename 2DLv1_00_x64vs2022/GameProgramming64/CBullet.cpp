@@ -3,6 +3,10 @@
 void CBullet::Update()
 {
 	float y = Y() + H();
+	if (y > 620.f)
+	{
+		y = 0;
+	}
 	Y(y);
 }
 
