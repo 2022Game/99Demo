@@ -4,6 +4,7 @@
 #include "CCharacter.h"
 #include "CBullet.h"
 #include "CEnemy.h"
+#include "CPlayer.h"
 
 class CApplication
 {
@@ -13,6 +14,7 @@ public:
 	//ŒJ‚è•Ô‚µÀs‚·‚éƒvƒƒOƒ‰ƒ€
 	void Update();
 private:
+	CPlayer mPlayer;
 	CBullet mBullet;
 //	CRectangle mRectangle;
 	CCharacter mRectangle;
