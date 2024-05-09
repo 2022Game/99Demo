@@ -68,3 +68,24 @@ void CRectangle::X(float x)
 {
 	mX = x;
 }
+
+bool CRectangle::Collision(CRectangle* r)
+{
+	float distX = mX - r->mX;
+	if (distX < 0.0f)
+		distX = -distX;
+	if (distX >= mW + r->mW)
+		return false;
+	//‰Û‘è‚P‚R
+	float distY = mY - r->mY;
+	if (distY < 0.0f)
+		distY = -distX;
+	if (distY >= mH + r->mH)
+		return false;
+
+
+
+
+
+	return true;
+}

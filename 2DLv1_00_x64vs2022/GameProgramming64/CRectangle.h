@@ -13,6 +13,12 @@ public:
 	float H();
 	void X(float x);
 	void Y(float y);
+	//bool Collision(四角形のポインタ)
+	//戻り値
+	//true:衝突している
+	//false;衝突していない
+	bool Collision(CRectangle* pRect);
+
 private:
 	float mX; //X座標
 	float mY; //Y座標
