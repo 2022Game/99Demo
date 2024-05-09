@@ -1,13 +1,23 @@
 #include "CBullet.h"
 
+bool CBullet::Collision(CRectangle* rect)
+{
+	if (CRectangle::Collision(rect))
+	{
+		mState = EState::ESTOP;
+		return true;
+	}
+	return false;
+}
 void CBullet::Update()
 {
-	float y = Y() + H();
-	if (y > 620.f)
+	if (mState == EState::EMOVE)
 	{
-		y = 0;
+		float y = Y() + H();
+		if (y > 620.0f)
+			y = 0.0f;
+		Y(y);
 	}
-	Y(y);
 }
 
 void CBullet::Render()

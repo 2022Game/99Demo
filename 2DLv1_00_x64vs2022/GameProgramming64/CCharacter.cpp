@@ -1,5 +1,18 @@
 #include "CCharacter.h"
 
+CCharacter::CCharacter()
+	: mpTexture(nullptr)
+	, mLeft(0.0f), mRight(0.0f), mBottom(0.0f), mTop(0.0f)
+	, mState(EState::EMOVE)
+{
+}
+
+CTexture* CCharacter::Texture()
+{
+	return mpTexture;
+}
+
+
 void CCharacter::Texture(CTexture* pTexture,
 	int left, int right, int bottom, int top)
 {
