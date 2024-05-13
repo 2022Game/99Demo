@@ -79,7 +79,7 @@ bool CRectangle::Collision(CRectangle* r)
 	//‰Û‘è‚P‚R
 	float distY = mY - r->mY;
 	if (distY < 0.0f)
-		distY = -distX;
+		distY = -distY;
 	if (distY >= mH + r->mH)
 		return false;
 
