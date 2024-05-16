@@ -28,5 +28,7 @@ void CApplication::Update()
 		mFont.Draw(370.0f, 300.0f, 15.0f, 30.0f, 'H');
 		mFont.Draw(400.0f, 300.0f, 15.0f, 30.0f, 'I');
 		mFont.Draw(430.0f, 300.0f, 15.0f, 30.0f, 'T');
+		mFont.Draw(370.0f, 240.0f, 15.0f, 30.0f, "PUSH");
+		mFont.Draw(370.0f, 180.0f, 15.0f, 30.0f, "ENTER");
 	}
 }
