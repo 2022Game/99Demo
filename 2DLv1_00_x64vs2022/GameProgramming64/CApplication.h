@@ -6,6 +6,7 @@
 #include "CEnemy.h"
 #include "CPlayer.h"
 #include "CFont.h"
+#include "CMiss.h"
 
 class CApplication
 {
@@ -15,6 +16,8 @@ public:
 	//ŒJ‚è•Ô‚µÀs‚·‚éƒvƒƒOƒ‰ƒ€
 	void Update();
 private:
+	CMiss mMiss;
+	CInput mInput;
 	CFont mFont;
 	CPlayer mPlayer;
 	CBullet mBullet;

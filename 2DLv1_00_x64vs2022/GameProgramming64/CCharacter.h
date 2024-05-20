@@ -5,6 +5,8 @@
 class CCharacter : public CRectangle
 {
 public:
+	void Move();
+
 	enum class EState	//ó‘Ô
 	{
 		EMOVE,	//ˆÚ“®

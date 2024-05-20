@@ -1,5 +1,10 @@
 #include "CBullet.h"
 
+CBullet::CBullet()
+{
+	mState = EState::ESTOP;
+}
+
 bool CBullet::Collision(CRectangle* rect)
 {
 	if (CRectangle::Collision(rect))

@@ -38,6 +38,7 @@
     <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CFont.h" />
     <ClInclude Include="CInput.h" />
+    <ClInclude Include="CMiss.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CSound.h" />
