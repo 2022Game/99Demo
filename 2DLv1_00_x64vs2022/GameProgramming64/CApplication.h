@@ -28,13 +28,13 @@ public:
 private:
 	EState mState;
 
-	CMiss mMiss;
+	CMiss* mpMiss;
 	CInput mInput;
 	CFont mFont;
-	CPlayer mPlayer;
-	CBullet mBullet;
+	CPlayer* mpPlayer;
+	CBullet* mpBullet;
 //	CRectangle mRectangle;
 	//CCharacter mRectangle;
 	CTexture mTexture;
-	CEnemy mEnemy;
+	CEnemy* mpEnemy;
 };
