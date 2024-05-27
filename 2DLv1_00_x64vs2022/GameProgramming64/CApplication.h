@@ -7,11 +7,12 @@
 #include "CPlayer.h"
 #include "CFont.h"
 #include "CMiss.h"
+#include "CCharacterManager.h"
 
 class CApplication
 {
 public:
-public:
+	CCharacterManager mCharacterManager;
 	enum class EState
 	{
 		ESTART,	//ÉQÅ[ÉÄäJén
@@ -33,7 +34,7 @@ private:
 	CPlayer mPlayer;
 	CBullet mBullet;
 //	CRectangle mRectangle;
-	CCharacter mRectangle;
+	//CCharacter mRectangle;
 	CTexture mTexture;
 	CEnemy mEnemy;
 };

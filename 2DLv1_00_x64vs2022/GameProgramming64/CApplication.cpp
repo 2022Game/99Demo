@@ -14,6 +14,10 @@ void CApplication::Start()
 	mBullet.Set(400.0f, -98.0f, 3.0f, 10.0f);
 	mMiss.Set(400.0f, 630.0f, 400.0f, 10.0f);
 	mState = EState::EPLAY;
+	mCharacterManager.Add(&mPlayer);
+	mCharacterManager.Add(&mEnemy);
+	mCharacterManager.Add(&mBullet);
+	mCharacterManager.Add(&mMiss);
 }
 
 void CApplication::Update()
@@ -29,12 +33,8 @@ void CApplication::Update()
 			mBullet.Move();
 		}
 
-		mPlayer.Update();
-		mEnemy.Update();
-		mBullet.Update();
-		mPlayer.Render();
-		mEnemy.Render();
-		mBullet.Render();
+		mCharacterManager.Update();
+		mCharacterManager.Render();
 
 		mEnemy.Collision(&mBullet);
 		if (mBullet.Collision(&mEnemy))
@@ -53,9 +53,8 @@ void CApplication::Update()
 		}
 		break;
 	case EState::EOVER:
-		mPlayer.Render();
-		mEnemy.Render();
-		mBullet.Render();
+		mCharacterManager.Render();
+
 		mFont.Draw(370.0f, 300.0f, 15.0f, 30.0f, "MISS");
 		mFont.Draw(370.0f, 240.0f, 15.0f, 30.0f, "PUSH");
 		mFont.Draw(370.0f, 180.0f, 15.0f, 30.0f, "ENTER");
@@ -65,9 +64,8 @@ void CApplication::Update()
 		}
 		break;
 	case EState::ECLEAR:
-		mPlayer.Render();
-		mEnemy.Render();
-		mBullet.Render();
+		mCharacterManager.Render();
+
 		mFont.Draw(370.0f, 300.0f, 15.0f, 30.0f, "HIT");
 		mFont.Draw(370.0f, 240.0f, 15.0f, 30.0f, "PUSH");
 		mFont.Draw(370.0f, 180.0f, 15.0f, 30.0f, "ENTER");
@@ -83,6 +81,7 @@ void CApplication::Update()
 		mEnemy.Set(26.0f, 574.0f, 44.0f, 26.0f);
 		mEnemy.Texture(&mTexture, 1604, 1808, 680,
 			472);
+		mEnemy.Move();
 		mBullet.Set(400.0f, -98.0f, 3.0f, 10.0f);
 		mState = EState::EPLAY;
 		break;

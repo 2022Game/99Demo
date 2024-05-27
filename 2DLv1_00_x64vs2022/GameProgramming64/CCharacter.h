@@ -5,6 +5,7 @@
 class CCharacter : public CRectangle
 {
 public:
+	virtual void Update() = 0;
 	void Move();
 
 	enum class EState	//èÛë‘
@@ -16,7 +17,7 @@ public:
 	CTexture* Texture();
 	void Texture(CTexture* pTexture,
 		int left, int right, int bottom, int top);
-	void Render();
+	virtual void Render();
 protected:
 	EState mState;
 private:
