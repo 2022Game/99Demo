@@ -1,6 +1,18 @@
 #include "CRectangle.h"
 #include "CApplication.h"
 
+CCharacterManager CApplication::mCharacterManager;
+CTexture CApplication::mTexture;
+
+CTexture* CApplication::Texture()
+{
+	return &mTexture;
+}
+
+CCharacterManager* CApplication::CharacterManager()
+{
+	return &mCharacterManager;
+}
 
 void CApplication::Start()
 {
@@ -35,14 +47,6 @@ void CApplication::Update()
 	switch (mState)
 	{
 	case EState::EPLAY:
-
-		if (mInput.Key(VK_SPACE))
-		{
-			mCharacterManager.Add(
-				new CBullet(mpPlayer->X(), mpPlayer->Y() + mpPlayer->H() + 10.0f
-					, 3.0f, 10.0f, 1396, 1420, 750, 592, &mTexture));
-
-		}
 
 		mCharacterManager.Update();
 		mCharacterManager.Render();

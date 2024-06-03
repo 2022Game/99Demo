@@ -12,7 +12,9 @@
 class CApplication
 {
 public:
-	CCharacterManager mCharacterManager;
+	static CTexture* Texture();
+	static CCharacterManager* CharacterManager();
+	static CCharacterManager mCharacterManager;
 	enum class EState
 	{
 		ESTART,	//ƒQ[ƒ€ŠJn
@@ -35,6 +37,6 @@ private:
 	CBullet* mpBullet;
 //	CRectangle mRectangle;
 	//CCharacter mRectangle;
-	CTexture mTexture;
+	static CTexture mTexture;
 	CEnemy* mpEnemy;
 };
