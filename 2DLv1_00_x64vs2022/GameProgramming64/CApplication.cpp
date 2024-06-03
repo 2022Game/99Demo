@@ -49,6 +49,7 @@ void CApplication::Update()
 	case EState::EPLAY:
 
 		mCharacterManager.Update();
+		mCharacterManager.Collision();
 		mCharacterManager.Render();
 
 		//mpEnemy->Collision(mpBullet);
