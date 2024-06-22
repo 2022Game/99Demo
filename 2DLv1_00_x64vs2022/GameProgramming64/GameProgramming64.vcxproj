@@ -29,6 +29,7 @@
     <ClCompile Include="CGame.cpp" />
     <ClCompile Include="CInput.cpp" />
     <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="CPlayer2.cpp" />
     <ClCompile Include="CRectagle.cpp" />
     <ClCompile Include="CSound.cpp" />
     <ClCompile Include="CTexture.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="CInput.h" />
     <ClInclude Include="CMiss.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CPlayer2.h" />
     <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CSound.h" />
     <ClInclude Include="CTexture.h" />

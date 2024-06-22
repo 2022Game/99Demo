@@ -1,6 +1,7 @@
 #include "CGame.h"
 #include "CApplication.h"
 #include "CBlock.h"
+#include "CPlayer2.h"
 
 CGame::CGame()
 {
@@ -13,7 +14,7 @@ CGame::CGame()
 	int map[ROWS][COLS] =
 	{
 	   {1,0,0,1,1,1,1,0,0,0,0,0,0,1,1,1,0,0,0,0},
-	   {0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,1},
+	   {0,0,0,0,2,1,0,0,0,0,0,0,0,1,0,0,0,0,1,1},
 	   {0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0},
 	   {0,1,1,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1,1,0},
 	   {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0},
@@ -46,6 +47,16 @@ CGame::CGame()
 						TIPSIZE, TIPSIZE,
 						CApplication::Texture()));
 			}
+			//2の時、プレイヤー生成
+			if (map[row][col] == 2)
+			{
+				//プレイヤーを生成して、キャラクタマネージャに追加
+				CApplication::CharacterManager()->Add(
+					new CPlayer2(TIPSIZE + TIPSIZE * 2 * col,
+						TIPSIZE + TIPSIZE * 2 * row,
+						TIPSIZE, TIPSIZE, CApplication::Texture()));
+			}
+
 		}
 	}
 }
