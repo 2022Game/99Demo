@@ -56,6 +56,7 @@ void CBullet::Collision(CCharacter* m, CCharacter* o)
 		if (CRectangle::Collision(o))
 		{
 			mState = EState::ESTOP;
+			mEnabled = false;
 		}
 	}
 }

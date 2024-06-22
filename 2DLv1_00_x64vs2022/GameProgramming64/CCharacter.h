@@ -5,6 +5,7 @@
 class CCharacter : public CRectangle
 {
 public:
+	bool Enabled();
 	enum class ETag	//識別子
 	{
 		EZERO,	//初期値
@@ -34,6 +35,7 @@ public:
 	virtual void Render();
 	ETag Tag();
 protected:
+	bool mEnabled; //有効フラグ
 	ETag mTag;	//識別子
 	EState mState;
 private:
