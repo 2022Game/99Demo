@@ -8,6 +8,7 @@
 #include "CFont.h"
 #include "CMiss.h"
 #include "CCharacterManager.h"
+#include "CGame.h"
 
 class CApplication
 {
@@ -28,6 +29,7 @@ public:
 	//ŒJ‚è•Ô‚µÀs‚·‚éƒvƒƒOƒ‰ƒ€
 	void Update();
 private:
+	CGame* mpGame;
 	EState mState;
 
 	CMiss* mpMiss;
