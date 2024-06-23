@@ -25,6 +25,7 @@
     <ClCompile Include="CCharacter.cpp" />
     <ClCompile Include="CCharacterManager.cpp" />
     <ClCompile Include="CEnemy.cpp" />
+    <ClCompile Include="CEnemy2.cpp" />
     <ClCompile Include="CFont.cpp" />
     <ClCompile Include="CGame.cpp" />
     <ClCompile Include="CInput.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="CCharacter.h" />
     <ClInclude Include="CCharacterManager.h" />
     <ClInclude Include="CEnemy.h" />
+    <ClInclude Include="CEnemy2.h" />
     <ClInclude Include="CFont.h" />
     <ClInclude Include="CGame.h" />
     <ClInclude Include="CInput.h" />
