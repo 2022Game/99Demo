@@ -2,16 +2,20 @@
 #include "CRectangle.h"
 #include "CTexture.h"
 
+#define VELOCITY 2.0f	//移動速度
+
 class CCharacter : public CRectangle
 {
 public:
 	bool Enabled();
 	enum class ETag	//識別子
 	{
-		EZERO,	//初期値
+		EZERO,		//初期値
 		EBULLET,	//弾
-		EENEMY,	//的
-		EPLAYER	//プレイヤー
+		EENEMY,		//的
+		EPLAYER,	//プレイヤー
+		ETURN,		//折り返し
+		EBLOCK,	//ブロック
 	};
 
 	//衝突処理２
@@ -38,6 +42,7 @@ public:
 	ETag Tag();
 	EState State();	//状態を取得する
 protected:
+	float mVx;	//X軸速度
 	float mVy;	//Y軸速度
 	bool mEnabled; //有効フラグ
 	ETag mTag;	//識別子

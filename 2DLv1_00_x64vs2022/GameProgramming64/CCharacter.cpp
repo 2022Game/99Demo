@@ -17,6 +17,7 @@ CCharacter::CCharacter()
 	, mTag(ETag::EZERO)
 	, mEnabled(true)
 	, mVy(0.0f)
+	, mVx(0.0f)
 {
 }
 

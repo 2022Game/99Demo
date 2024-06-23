@@ -46,7 +46,7 @@ void CPlayer2::Collision(CCharacter* m, CCharacter* o)
 
 	case ETag::EPLAYER:
 		break;
-	default:
+	case ETag::EBLOCK:
 		if (CRectangle::Collision(o, &x, &y))
 		{
 			X(X() + x);
@@ -62,6 +62,7 @@ void CPlayer2::Collision(CCharacter* m, CCharacter* o)
 				}
 			}
 		}
+		break;
 	}
 }
 
