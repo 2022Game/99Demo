@@ -2,6 +2,8 @@
 #include "CApplication.h"
 
 #define TEXCOORD 168, 188, 158, 128 //テクスチャマッピング
+#define  GRAVITY  (TIPSIZE / 20.0f)	//重力加速度
+#define JUMPV0 (TIPSIZE / 1.4f)	//ジャンプの初速
 
 void CPlayer2::Collision()
 {
@@ -20,6 +22,16 @@ void CPlayer2::Collision(CCharacter* m, CCharacter* o)
 		{
 			X(X() + x);
 			Y(Y() + y);
+			//着地した時
+			if (y != 0.0f)
+			{
+				//Y軸速度を0にする
+				mVy = 0.0f;
+				if (y > 0.0f)
+				{
+					mState = EState::EMOVE;
+				}
+			}
 		}
 	}
 }
@@ -34,6 +46,17 @@ CPlayer2::CPlayer2(float x, float y, float w, float h, CTexture* pt)
 
 void CPlayer2::Update()
 {
+	if (mState != EState::EJUMP)
+	{
+		if (mInput.Key('J'))
+		{
+			mVy = JUMPV0;
+			mState = EState::EJUMP;
+		}
+
+	}
+
+
 	if (mInput.Key('A'))
 	{
 		X(X() - 4);
@@ -42,4 +65,9 @@ void CPlayer2::Update()
 	{
 		X(X() + 4);
 	}
+
+	//Y座標にY軸速度を加える
+	Y(Y() + mVy);
+	//Y軸速度に重力を減算する
+	mVy -= GRAVITY;
 }

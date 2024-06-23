@@ -26,7 +26,8 @@ public:
 	enum class EState	//状態
 	{
 		EMOVE,	//移動
-		ESTOP	//停止
+		ESTOP,	//停止
+		EJUMP,	//ジャンプ
 	};
 	CCharacter();
 	CTexture* Texture();
@@ -35,6 +36,7 @@ public:
 	virtual void Render();
 	ETag Tag();
 protected:
+	float mVy;	//Y軸速度
 	bool mEnabled; //有効フラグ
 	ETag mTag;	//識別子
 	EState mState;
