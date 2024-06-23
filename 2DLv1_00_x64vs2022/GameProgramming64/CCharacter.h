@@ -28,6 +28,7 @@ public:
 		EMOVE,	//移動
 		ESTOP,	//停止
 		EJUMP,	//ジャンプ
+		ECRY,		//泣く
 	};
 	CCharacter();
 	CTexture* Texture();
@@ -35,6 +36,7 @@ public:
 		int left, int right, int bottom, int top);
 	virtual void Render();
 	ETag Tag();
+	EState State();	//状態を取得する
 protected:
 	float mVy;	//Y軸速度
 	bool mEnabled; //有効フラグ

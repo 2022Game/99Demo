@@ -4,6 +4,7 @@
 #define TEXCOORD 168, 188, 158, 128 //テクスチャマッピング
 #define  GRAVITY  (TIPSIZE / 20.0f)	//重力加速度
 #define JUMPV0 (TIPSIZE / 1.4f)	//ジャンプの初速
+#define TEXCRY 196, 216, 158, 128	//テクスチャマッピング
 
 void CPlayer2::Collision()
 {
@@ -15,6 +16,34 @@ void CPlayer2::Collision(CCharacter* m, CCharacter* o)
 	float x, y;
 	switch (o->Tag())
 	{
+	case ETag::EENEMY:
+		if (CRectangle::Collision(o, &x, &y))
+		{
+			//敵の衝突判定を実行
+			o->Collision(o, m);
+			X(X() + x);
+			Y(Y() + y);
+			//着地した時
+			if (y != 0.0f)
+			{
+				//Y軸速度を0にする
+				mVy = 0.0f;
+				if (y > 0.0f)
+				{
+					mState = EState::EMOVE;
+				}
+				else
+				{	//ジャンプでなければ泣く
+					mState = EState::ECRY;
+				}
+			}
+			else
+			{	//ジャンプでなければ泣く
+				mState = EState::ECRY;
+			}
+		}
+		break;
+
 	case ETag::EPLAYER:
 		break;
 	default:
@@ -70,4 +99,15 @@ void CPlayer2::Update()
 	Y(Y() + mVy);
 	//Y軸速度に重力を減算する
 	mVy -= GRAVITY;
+
+	if (mState == EState::ECRY)
+	{
+		//泣く画像を設定
+		Texture(Texture(), TEXCRY);
+	}
+	else
+	{
+		//通常の画像を設定
+		Texture(Texture(), TEXCOORD);
+	}
 }

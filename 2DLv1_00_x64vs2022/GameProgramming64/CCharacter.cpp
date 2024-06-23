@@ -51,3 +51,8 @@ CCharacter::ETag CCharacter::Tag()
 {
 	return mTag;
 }
+
+CCharacter::EState CCharacter::State()
+{
+	return mState;
+}
