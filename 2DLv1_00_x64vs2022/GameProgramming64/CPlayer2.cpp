@@ -5,6 +5,10 @@
 #define  GRAVITY  (TIPSIZE / 20.0f)	//重力加速度
 #define JUMPV0 (TIPSIZE / 1.4f)	//ジャンプの初速
 #define TEXCRY 196, 216, 158, 128	//テクスチャマッピング
+#define TEXCOORD2 136,156,158,128	  //右向き2
+#define TEXLEFT1 188,168,158,128	//左向き1
+#define TEXLEFT2 156,136,158,128	//左向き2
+#define VELOCITY 4.0f	//移動速度
 
 void CPlayer2::Collision()
 {
@@ -89,12 +93,15 @@ void CPlayer2::Update()
 
 	if (mInput.Key('A'))
 	{
-		X(X() - 4);
+		mVx = -VELOCITY;
+		X(X() + mVx);
 	}
 	if (mInput.Key('D'))
 	{
-		X(X() + 4);
+		mVx = VELOCITY;
+		X(X() + mVx);
 	}
+
 
 	//Y座標にY軸速度を加える
 	Y(Y() + mVy);
@@ -108,7 +115,32 @@ void CPlayer2::Update()
 	}
 	else
 	{
-		//通常の画像を設定
-		Texture(Texture(), TEXCOORD);
+		const int PITCH = 32;	//画像を切り替える間隔
+		if ((int)X() % PITCH < PITCH / 2)
+		{
+			if (mVx < 0.0f) //左へ移動
+			{
+				//左向き１を設定
+				Texture(Texture(), TEXLEFT1);
+			}
+			else
+			{
+				//通常の画像を設定
+				Texture(Texture(), TEXCOORD);
+			}
+		}
+		else
+		{
+			if (mVx < 0.0f) //左へ移動
+			{
+				//左向き2を設定
+				Texture(Texture(), TEXLEFT2);
+			}
+			else
+			{
+				//2番目の画像を設定
+				Texture(Texture(), TEXCOORD2);
+			}
+		}
 	}
 }
