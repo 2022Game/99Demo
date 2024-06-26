@@ -6,7 +6,11 @@
 #include "CPoint.h"
 
 CGame::CGame()
+	: mpUi(nullptr)
+	, mTime(0)
 {
+	mpUi = new CUi(); //UIクラスのインスタンスの生成
+
 	//テクスチャの入力
 	CApplication::Texture()->Load(TEXTURE);
 	//定数の定義
@@ -89,4 +93,8 @@ void CGame::Update()
 	CApplication::CharacterManager()->Collision();
 	CApplication::CharacterManager()->Delete();
 	CApplication::CharacterManager()->Render();
+	//UI
+	mpUi->Time(mTime++);
+	mpUi->Hp(1);
+	mpUi->Render();
 }
