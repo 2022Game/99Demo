@@ -95,6 +95,6 @@ void CGame::Update()
 	CApplication::CharacterManager()->Render();
 	//UI
 	mpUi->Time(mTime++);
-	mpUi->Hp(1);
+	mpUi->Hp(CPlayer2::Hp());
 	mpUi->Render();
 }

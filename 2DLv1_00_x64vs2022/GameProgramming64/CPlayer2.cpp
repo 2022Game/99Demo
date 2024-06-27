@@ -9,6 +9,14 @@
 #define TEXLEFT1 188,168,158,128	//左向き1
 #define TEXLEFT2 156,136,158,128	//左向き2
 #define VELOCITY 4.0f	//移動速度
+#define HP 3
+
+int CPlayer2::sHp = 0;	//HP
+
+int CPlayer2::Hp()
+{
+	return sHp;
+}
 
 void CPlayer2::Collision()
 {
@@ -39,11 +47,21 @@ void CPlayer2::Collision(CCharacter* m, CCharacter* o)
 				else
 				{	//ジャンプでなければ泣く
 					mState = EState::ECRY;
+					if (mInvincible == 0)
+					{
+						sHp--;
+						mInvincible = 60;
+					}
 				}
 			}
 			else
 			{	//ジャンプでなければ泣く
 				mState = EState::ECRY;
+				if (mInvincible == 0)
+				{
+					sHp--;
+					mInvincible = 60;
+				}
 			}
 		}
 		break;
@@ -72,7 +90,9 @@ void CPlayer2::Collision(CCharacter* m, CCharacter* o)
 
 
 CPlayer2::CPlayer2(float x, float y, float w, float h, CTexture* pt)
+	:mInvincible(0)
 {
+	sHp = HP;
 	Set(x, y, w, h);
 	Texture(pt, TEXCOORD);
 	mTag = ETag::EPLAYER;
@@ -80,6 +100,11 @@ CPlayer2::CPlayer2(float x, float y, float w, float h, CTexture* pt)
 
 void CPlayer2::Update()
 {
+	if (mInvincible > 0)
+	{
+		mInvincible--;
+	}
+
 	if (mState != EState::EJUMP)
 	{
 		if (mInput.Key('J'))

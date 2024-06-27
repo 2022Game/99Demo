@@ -14,6 +14,10 @@ public:
 	CPlayer2(float x, float y, float w, float h, CTexture* pt);
 	//更新処理
 	void Update();
+	//HPを取得
+	static int Hp();
 private:
 	CInput mInput;
+	static int sHp;	//HP
+	int mInvincible;	//無敵カウンタ
 };
