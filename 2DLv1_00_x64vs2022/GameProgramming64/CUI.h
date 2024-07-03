@@ -7,12 +7,16 @@
 class CUi
 {
 public:
+	//Enemy(“G‚Ì”)
+	void Enemy(int enemy);
+
 	CUi();
 	//Time(ŠÔ)
 	void Time(int time);
 	void Hp(int hp);
 	void Render();
 private:
+	int mEnemy;	//“G‚Ì”
 	int mHp;
 	int mTime;	//Œo‰ßŠÔ
 	CFont mFont;

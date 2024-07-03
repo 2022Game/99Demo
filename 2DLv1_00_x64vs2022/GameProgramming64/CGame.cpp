@@ -96,5 +96,6 @@ void CGame::Update()
 	//UI
 	mpUi->Time(mTime++);
 	mpUi->Hp(CPlayer2::Hp());
+	mpUi->Enemy(CEnemy2::Num());
 	mpUi->Render();
 }
