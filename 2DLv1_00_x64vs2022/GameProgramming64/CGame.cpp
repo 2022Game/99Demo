@@ -5,6 +5,51 @@
 #include "CEnemy2.h"
 #include "CPoint.h"
 
+bool CGame::IsClear()
+{
+	return CEnemy2::Num() <= 0;
+}
+
+void CGame::Clear()
+{
+	//ƒQ[ƒ€‚Ì•`‰æ
+	CApplication::CharacterManager()->Render();
+	//UIˆ—
+	mpUi->Hp(CPlayer2::Hp());
+	mpUi->Enemy(CEnemy2::Num());
+	mpUi->Render();
+	mpUi->Clear();
+}
+
+bool CGame::IsOver()
+{
+	//HP‚ª0ˆÈ‰º‚©”»’èŒ‹‰Ê‚ð–ß‚·
+	return CPlayer2::Hp() <= 0;
+}
+
+void CGame::Over()
+{
+	//ƒQ[ƒ€‚Ì•`‰æ
+	CApplication::CharacterManager()->Render();
+	//UIˆ—
+	mpUi->Hp(CPlayer2::Hp());
+	mpUi->Enemy(CEnemy2::Num());
+	mpUi->Render();
+	mpUi->Over();
+
+}
+
+void CGame::Start()
+{
+	//ƒQ[ƒ€‚Ì•`‰æ
+	CApplication::CharacterManager()->Render();
+	//UIˆ—
+	mpUi->Hp(CPlayer2::Hp());
+	mpUi->Enemy(CEnemy2::Num());
+	mpUi->Render();
+	mpUi->Start();
+}
+
 CGame::CGame()
 	: mpUi(nullptr)
 	, mTime(0)

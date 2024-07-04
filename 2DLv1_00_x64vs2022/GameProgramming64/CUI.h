@@ -7,6 +7,15 @@
 class CUi
 {
 public:
+	//ゲームクリア表示
+	void Clear();
+
+	//ゲームオーバー表示
+	void Over();
+
+	//スタート画面
+	void Start();
+
 	//Enemy(敵の数)
 	void Enemy(int enemy);
 
