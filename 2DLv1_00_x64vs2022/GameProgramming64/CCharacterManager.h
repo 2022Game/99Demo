@@ -7,6 +7,9 @@
 class CCharacterManager
 {
 public:
+	//全インスタンス削除
+	void AllDelete();
+
 	//無効なポインタを削除する
 	void Delete();
 

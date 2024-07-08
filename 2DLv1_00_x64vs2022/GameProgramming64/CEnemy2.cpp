@@ -8,6 +8,10 @@
 #define TEXLEFT2 156,136,190, 160	//¶Œü‚«2
 
 int CEnemy2::sNum = 0;
+void CEnemy2::Num(int num)
+{
+	sNum = num;
+}
 int CEnemy2::Num()
 {
 	return sNum;

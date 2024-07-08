@@ -5,6 +5,18 @@
 #include "CEnemy2.h"
 #include "CPoint.h"
 
+CGame::~CGame()
+{
+	//全てのインスタンス削除
+	CApplication::CharacterManager()->AllDelete();
+	//UIを生成している時
+	if (mpUi != nullptr)
+	{	//UIを削除し、初期化
+		delete mpUi;
+		mpUi = nullptr;
+	}
+}
+
 bool CGame::IsClear()
 {
 	return CEnemy2::Num() <= 0;
@@ -54,6 +66,8 @@ CGame::CGame()
 	: mpUi(nullptr)
 	, mTime(0)
 {
+	CEnemy2::Num(0);
+
 	mpUi = new CUi(); //UIクラスのインスタンスの生成
 
 	//テクスチャの入力

@@ -5,6 +5,7 @@ class CEnemy2 : public CCharacter
 {
 public:
 	//“G‚Ì”‚ğæ“¾
+	static void Num(int num);
 	static int Num();
 
 	//Õ“Ëˆ—2
