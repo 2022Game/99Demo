@@ -4,6 +4,8 @@
 #include "CPlayer2.h"
 #include "CEnemy2.h"
 #include "CPoint.h"
+#include "main.h"
+#include "CCamera.h"
 
 CGame::~CGame()
 {
@@ -24,8 +26,9 @@ bool CGame::IsClear()
 
 void CGame::Clear()
 {
-	//ゲームの描画
+	CameraSet();
 	CApplication::CharacterManager()->Render();
+	CCamera::End();
 	//UI処理
 	mpUi->Hp(CPlayer2::Hp());
 	mpUi->Enemy(CEnemy2::Num());
@@ -41,8 +44,9 @@ bool CGame::IsOver()
 
 void CGame::Over()
 {
-	//ゲームの描画
+	CameraSet();
 	CApplication::CharacterManager()->Render();
+	CCamera::End();
 	//UI処理
 	mpUi->Hp(CPlayer2::Hp());
 	mpUi->Enemy(CEnemy2::Num());
@@ -115,11 +119,19 @@ CGame::CGame()
 			//2の時、プレイヤー生成
 			if (map[row][col] == 2)
 			{
+				//カメラ用差分
+				mCdx =
+					WINDOW_WIDTH / 4 - (TIPSIZE + TIPSIZE * 2 * col);
+				mCdy =
+					WINDOW_HEIGHT / 4 - (TIPSIZE + TIPSIZE * 2 * row);
 				//プレイヤーを生成して、キャラクタマネージャに追加
 				CApplication::CharacterManager()->Add(
+					//mpPlayerにプレイヤーのインスタンスのポインタを代入
+					mpPlayer =
 					new CPlayer2(TIPSIZE + TIPSIZE * 2 * col,
 						TIPSIZE + TIPSIZE * 2 * row,
 						TIPSIZE, TIPSIZE, CApplication::Texture()));
+
 			}			
 			//3の時、敵生成
 			if (map[row][col] == 3)
@@ -151,10 +163,23 @@ void CGame::Update()
 	CApplication::CharacterManager()->Update();
 	CApplication::CharacterManager()->Collision();
 	CApplication::CharacterManager()->Delete();
+	CameraSet();
 	CApplication::CharacterManager()->Render();
+	CCamera::End();
+
 	//UI
 	mpUi->Time(mTime++);
 	mpUi->Hp(CPlayer2::Hp());
 	mpUi->Enemy(CEnemy2::Num());
 	mpUi->Render();
+}
+
+void CGame::CameraSet()
+{
+	float x = mpPlayer->X() + mCdx;
+	float y = mpPlayer->Y() + mCdy;
+	CCamera::Start(x - WINDOW_WIDTH / 4
+		, x + WINDOW_WIDTH / 4
+		, y - WINDOW_HEIGHT / 4
+		, y + WINDOW_HEIGHT / 4);
 }
