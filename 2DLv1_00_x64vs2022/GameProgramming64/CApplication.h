@@ -9,6 +9,7 @@
 #include "CMiss.h"
 #include "CCharacterManager.h"
 #include "CGame.h"
+#include "CSound.h"
 
 class CApplication
 {
@@ -29,6 +30,8 @@ public:
 	//ŒJ‚è•Ô‚µÀs‚·‚éƒvƒƒOƒ‰ƒ€
 	void Update();
 private:
+	CSound mSoundBgm;	//BGM
+	CSound mSoundOver;	//GAME OVER
 	CGame* mpGame;
 	EState mState;
 
