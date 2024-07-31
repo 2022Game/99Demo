@@ -55,6 +55,7 @@ void CEnemy2::Collision(CCharacter* m, CCharacter* o)
 }
 
 CEnemy2::CEnemy2(float x, float y, float w, float h, CTexture* pt)
+	: mRotZ(0)
 {
 	Set(x, y, w, h);
 	Texture(pt, TEXCOORD);
@@ -104,4 +105,19 @@ void CEnemy2::Update()
 		}
 		break;
 	}
+}
+
+void CEnemy2::Render()
+{
+	glPushMatrix();
+
+	glTranslatef(X(), Y(), 0);
+	glRotated(mRotZ++, 0.0, 0.0, 1.0);
+	glTranslatef(-X(), -Y(), 0);
+
+	CCharacter::Render();
+
+
+	glPopMatrix();
+
 }

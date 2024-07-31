@@ -17,7 +17,10 @@ public:
 	CEnemy2(float x, float y, float w, float h, CTexture* pt);
 	//XVˆ—
 	void Update();
+
+	void Render();
 private:
+	int mRotZ;
 	static int sNum;	//“G‚Ì”
 
 };
