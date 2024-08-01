@@ -109,15 +109,16 @@ void CEnemy2::Update()
 
 void CEnemy2::Render()
 {
+	//設定の退避
 	glPushMatrix();
 
-	glTranslatef(X(), Y(), 0);
-	glRotated(mRotZ++, 0.0, 0.0, 1.0);
-	glTranslatef(-X(), -Y(), 0);
+	//原点まで移動し、Z軸で90度回転（）して、元の位置へ移動する
+	glTranslatef(X(), Y(), 0);		//元の位置へ移動（Translate）
+	glRotatef(45, 0.0, 0.0, 1.0);	//Z軸で90度回転（Rotate）
+	glTranslatef(-X(), -Y(), 0);	//原点へ移動(Translate)
 
-	CCharacter::Render();
+	CCharacter::Render();	//画像の描画
 
-
+	//設定を戻す
 	glPopMatrix();
-
 }
