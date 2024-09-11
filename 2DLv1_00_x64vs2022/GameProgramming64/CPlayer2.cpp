@@ -10,6 +10,7 @@
 #define TEXLEFT2 156,136,158,128	//左向き2
 #define VELOCITY 4.0f	//移動速度
 #define HP 3
+#define SE_JUMP "res\\jump.wav" //ジャンプの音声ファイル
 
 int CPlayer2::sHp = 0;	//HP
 
@@ -96,6 +97,9 @@ CPlayer2::CPlayer2(float x, float y, float w, float h, CTexture* pt)
 	Set(x, y, w, h);
 	Texture(pt, TEXCOORD);
 	mTag = ETag::EPLAYER;
+	//ジャンプ音ロード
+	mSoundJump.Load(SE_JUMP);
+
 }
 
 void CPlayer2::Update()
@@ -109,6 +113,9 @@ void CPlayer2::Update()
 	{
 		if (mInput.Key('J'))
 		{
+			//ジャンプ音
+			mSoundJump.Play();
+
 			mVy = JUMPV0;
 			mState = EState::EJUMP;
 		}

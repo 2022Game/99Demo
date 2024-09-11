@@ -68,12 +68,12 @@ public:
 	/*
 	ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ
 	*/
-	bool Load(char* filename)
+	bool Load(const char* filename)
 	{
 		return Load(filename, 1.0f);
 	}
 
-	bool Load(char	*filename, float volume)
+	bool Load(const char *filename, float volume)
 	{
 		if (mpSourceVoice == 0)
 		{

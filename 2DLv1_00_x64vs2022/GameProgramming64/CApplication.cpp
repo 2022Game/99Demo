@@ -1,6 +1,9 @@
 #include "CRectangle.h"
 #include "CApplication.h"
 
+#define SOUND_BGM "res\\mario.wav" //BGM音声ファイル
+#define SOUND_OVER "res\\mdai.wav" //ゲームオーバー音声ファイル
+
 CCharacterManager CApplication::mCharacterManager;
 CTexture CApplication::mTexture;
 
@@ -16,6 +19,10 @@ CCharacterManager* CApplication::CharacterManager()
 
 void CApplication::Start()
 {
+	//Sound
+	mSoundBgm.Load(SOUND_BGM);
+	mSoundOver.Load(SOUND_OVER);
+
 	mFont.Load("FontWhite.png", 1, 64);
 	//状態をスタートにする
 	mState = EState::ESTART;
@@ -32,6 +39,8 @@ void CApplication::Update()
 		if (mInput.Key(VK_RETURN))
 		{	//状態をプレイ中にする
 			mState = EState::EPLAY;
+			//BGMリピート再生
+			mSoundBgm.Repeat();
 		}
 		break;
 	case EState::EPLAY:
@@ -40,6 +49,9 @@ void CApplication::Update()
 		if (mpGame->IsOver())
 		{	//状態をゲームオーバーにする
 			mState = EState::EOVER;
+			//BGMストップ
+			mSoundBgm.Stop();
+			mSoundOver.Play();
 		}
 		//ゲームクリアか判定
 		if (mpGame->IsClear())
