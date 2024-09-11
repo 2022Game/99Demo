@@ -1,0 +1,25 @@
+﻿  CApplication.cpp
+  CBlock.cpp
+  CBullet.cpp
+  CCamera.cpp
+  CCharacter.cpp
+  CCharacterManager.cpp
+  CEnemy.cpp
+  CEnemy2.cpp
+  CFont.cpp
+  CGame.cpp
+  CPlayer.cpp
+  CPlayer2.cpp
+C:\Users\Takahashi\Desktop\Git\2022Game\99Demo\2DLv1_2022_vs2019 - Obata\GameProgramming\src\CPlayer2.cpp(12,1): warning C4005: 'VELOCITY': マクロが再定義されました。
+C:\Users\Takahashi\Desktop\Git\2022Game\99Demo\2DLv1_2022_vs2019 - Obata\GameProgramming\src\CCharacter.h(6): message : 'VELOCITY' の以前の定義を確認してください
+  CPoint.cpp
+  CRectangle.cpp
+  CSound.cpp
+  CTexture.cpp
+  CInput.cpp
+  CUi.cpp
+  main.cpp
+  コードを生成中...
+LINK : warning LNK4098: defaultlib 'MSVCRT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
+LINK : warning LNK4098: defaultlib 'LIBCMT' は他のライブラリの使用と競合しています。/NODEFAULTLIB:library を使用してください。
+  GameProgramming.vcxproj -> C:\Users\Takahashi\Desktop\Git\2022Game\99Demo\2DLv1_2022_vs2019 - Obata\Debug\GameProgramming.exe
